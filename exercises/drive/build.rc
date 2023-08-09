@@ -1,0 +1,11 @@
+use std::env;
+
+fn main() {
+    let timestamp = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_secs();
+
+    let random_timestamp = timestamp + 5; // 在这个示例中，假设设置的值比当前时间戳小 5 秒
+    env::set_var("TEST_FOO", random_timestamp.to_string());
+}
